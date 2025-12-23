@@ -11,7 +11,10 @@
     "primary": "Primary",
     "neutral": "Neutral",
     "language": "Language",
-    "retry": "Retry"
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "create": "Create",
+    "active": "Active"
   },
   "brand": {
     "name": "BookYourSurf",
@@ -56,6 +59,35 @@
       "active": "Active",
       "inactive": "Inactive",
       "pending": "Pending"
+    },
+    "modal": {
+      "addTitle": "Add New Business",
+      "addDescription": "Add a new surf business to the platform",
+      "createButton": "Create Business",
+      "successTitle": "Success",
+      "successDescription": "Business \"{name}\" has been created"
+    },
+    "form": {
+      "name": "Business Name",
+      "namePlaceholder": "Surf School Bali",
+      "type": "Type",
+      "typePlaceholder": "Select business type",
+      "address": "Address",
+      "addressPlaceholder": "Jl. Pantai Berawa, Canggu, Bali",
+      "latitude": "Latitude",
+      "latitudePlaceholder": "-8.6705",
+      "longitude": "Longitude",
+      "longitudePlaceholder": "115.1405",
+      "image": "Image URL",
+      "imagePlaceholder": "https://example.com/image.jpg",
+      "description": "Description",
+      "descriptionPlaceholder": "Describe the business..."
+    },
+    "validation": {
+      "nameMinLength": "Business name must be at least 2 characters",
+      "addressMinLength": "Address must be at least 5 characters",
+      "imageUrl": "Must be a valid URL",
+      "descriptionMinLength": "Description must be at least 10 characters"
     }
   }
 }

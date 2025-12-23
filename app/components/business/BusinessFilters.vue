@@ -6,7 +6,6 @@
           :model-value="searchQuery"
           icon="i-heroicons-magnifying-glass"
           :placeholder="$t('businesses.searchPlaceholder')"
-          class="bg-elevated border-default"
           @update:model-value="setSearchQuery"
         />
       </div>

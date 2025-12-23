@@ -17,6 +17,18 @@
   --color-brand-900: #5A2612;
   --color-brand-950: #331508;
 
+  --color-neutral-50: #f6f7f8;
+  --color-neutral-100: #e8eaeb;
+  --color-neutral-200: #d4d7d9;
+  --color-neutral-300: #b4b9bc;
+  --color-neutral-400: #8e9498;
+  --color-neutral-500: #7C898B;
+  --color-neutral-600: #657176;
+  --color-neutral-700: #525b5f;
+  --color-neutral-800: #464d51;
+  --color-neutral-900: #3d4346;
+  --color-neutral-950: #282b2d;
+
   /* Brand Black */
   --color-gray-900: #333333;
   --color-gray-950: #1a1a1a;
@@ -34,8 +46,13 @@
 /* Light mode custom backgrounds */
 :root {
   --ui-bg: #FAF9F7;
+
+  --ui-bg-muted: #FCFCFC;
   --ui-bg-elevated: #FCFCFC;
+
   --ui-bg-inverted: #333333;
+  --ui-border: #7C898B;
+
   --ui-border: #7C898B;
 }
 

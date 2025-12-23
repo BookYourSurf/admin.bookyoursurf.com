@@ -11,7 +11,10 @@
     "primary": "Primair",
     "neutral": "Neutraal",
     "language": "Taal",
-    "retry": "Opnieuw proberen"
+    "retry": "Opnieuw proberen",
+    "cancel": "Annuleren",
+    "create": "Aanmaken",
+    "active": "Actief"
   },
   "brand": {
     "name": "BookYourSurf",
@@ -56,6 +59,35 @@
       "active": "Actief",
       "inactive": "Inactief",
       "pending": "In behandeling"
+    },
+    "modal": {
+      "addTitle": "Nieuw bedrijf toevoegen",
+      "addDescription": "Voeg een nieuw surfbedrijf toe aan het platform",
+      "createButton": "Bedrijf aanmaken",
+      "successTitle": "Succes",
+      "successDescription": "Bedrijf \"{name}\" is aangemaakt"
+    },
+    "form": {
+      "name": "Bedrijfsnaam",
+      "namePlaceholder": "Surfschool Bali",
+      "type": "Type",
+      "typePlaceholder": "Selecteer bedrijfstype",
+      "address": "Adres",
+      "addressPlaceholder": "Jl. Pantai Berawa, Canggu, Bali",
+      "latitude": "Breedtegraad",
+      "latitudePlaceholder": "-8.6705",
+      "longitude": "Lengtegraad",
+      "longitudePlaceholder": "115.1405",
+      "image": "Afbeeldings-URL",
+      "imagePlaceholder": "https://voorbeeld.nl/afbeelding.jpg",
+      "description": "Beschrijving",
+      "descriptionPlaceholder": "Beschrijf het bedrijf..."
+    },
+    "validation": {
+      "nameMinLength": "Bedrijfsnaam moet minimaal 2 tekens bevatten",
+      "addressMinLength": "Adres moet minimaal 5 tekens bevatten",
+      "imageUrl": "Moet een geldige URL zijn",
+      "descriptionMinLength": "Beschrijving moet minimaal 10 tekens bevatten"
     }
   }
 }

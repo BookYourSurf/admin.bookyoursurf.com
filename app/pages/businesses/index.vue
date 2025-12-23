@@ -6,20 +6,14 @@
           <UDashboardSidebarCollapse />
         </template>
 
-        <template #trailing>
-          <UButton
-            to="/businesses/new"
-            icon="i-heroicons-plus"
-            size="sm"
-          >
-            {{ $t('businesses.addNew') }}
-          </UButton>
+        <template #right>
+          <BusinessAddModal />
         </template>
       </UDashboardNavbar>
     </template>
 
     <template #body>
-      <div class="p-8 space-y-6">
+      <div class="p-4 space-y-6">
         <StatsGrid :stats="businessStats" />
 
         <BusinessFilters />

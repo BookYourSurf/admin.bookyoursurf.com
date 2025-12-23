@@ -1,5 +1,5 @@
 <template>
-  <UCard class="bg-elevated hover:shadow-lg transition-shadow cursor-pointer" @click="handleClick">
+  <UCard class="hover:shadow-lg transition-shadow cursor-pointer" @click="handleClick">
     <div class="flex gap-4">
       <div class="shrink-0">
         <img
