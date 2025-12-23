@@ -1,0 +1,431 @@
+# BookYourSurf Admin Panel - AI Assistant Rules
+
+## Project Overview
+
+This is the admin panel for BookYourSurf - a Nuxt 4 application for managing surf businesses, built with Vue 3, TypeScript, Nuxt UI, and Tailwind CSS.
+
+## Tech Stack
+
+- **Framework**: Nuxt 4.2.2 with Vue 3
+- **Language**: TypeScript
+- **UI Library**: Nuxt UI v4.3.0 (built on Reka UI + Tailwind CSS)
+- **Styling**: Tailwind CSS utility classes
+- **Internationalization**: @nuxtjs/i18n v10
+- **Package Manager**: Yarn
+- **Linting**: ESLint with Nuxt config
+- **Formatting**: Prettier
+
+## Nuxt 4 Notes
+
+- Using Nuxt 4.2.2 (latest stable)
+- Project structure: Currently using Nuxt 3 compatible structure (root-level directories)
+- Future migration to `app/` directory is optional but not required
+- Component auto-imports configured with `pathPrefix: false` for flat naming
+- TypeScript configured with `compatibilityDate: "2025-12-22"`
+- All dependencies are Nuxt 4 compatible
+
+## Code Style & Standards
+
+### Vue Components
+
+- Use Composition API with `<script setup>`
+- Follow PascalCase for component names
+- Use kebab-case for component files
+- Always define TypeScript interfaces for props and data
+- Use single-file components (.vue) with template, script, and style sections
+- Keep components focused and single-purpose
+- **Create custom wrapper components around Nuxt UI components for reusability**
+
+### Component Architecture Philosophy
+
+While we use Nuxt UI components for rapid development, we still create well-defined custom components:
+
+**✅ DO:**
+
+- Create custom components that wrap Nuxt UI components
+- Build reusable business logic components
+- Extract repeated patterns into dedicated components
+- Use composables for state management and business logic
+
+**❌ DON'T:**
+
+- Use Nuxt UI components directly in pages repeatedly
+- Mix business logic with presentation in pages
+- Duplicate code across pages
+
+### TypeScript
+
+- Define interfaces in `/types/` organized by domain
+- Use strict typing for all props, emits, and data
+- Import types explicitly when needed
+- Follow the existing enum pattern for SurfBusinessType
+- Export types from `/types/index.ts`
+
+### Styling Approach
+
+- Use Tailwind CSS utility classes for styling
+- Leverage Nuxt UI's theming system via `app.config.ts`
+- Keep Tailwind classes in components, not in pages
+- Use Nuxt UI's color system with brand colors
+- Prefer Nuxt UI components over custom HTML + Tailwind when possible
+
+### File Organization
+
+```
+/components/
+  /business/           # Business-specific components
+    BusinessList.vue
+    BusinessCard.vue
+    BusinessForm.vue
+  /common/             # Shared/reusable components
+    PageHeader.vue
+    DataTable.vue
+    StatusBadge.vue
+  /form/               # Form components (wrappers around Nuxt UI)
+    FormInput.vue
+    FormSelect.vue
+
+/composables/          # Business logic and state management
+  useSurfBusinesses.ts
+  useBusinessForm.ts
+
+/types/                # TypeScript definitions
+  business.ts
+  common.ts
+  enums.ts
+  index.ts
+
+/mocks/                # Mock data for development
+  mock-businesses.ts
+
+/i18n/locales/         # Translation files
+  en.json
+  id.json
+```
+
+## Development Guidelines
+
+### Component Structure
+
+```vue
+<template>
+  <div>
+    <!-- Use Nuxt UI components with custom wrapper logic -->
+    <UButton @click="handleAction">{{ label }}</UButton>
+  </div>
+</template>
+
+<script setup lang="ts">
+// 1. Define interfaces
+interface Props {
+  label: string
+  // typed props
+}
+
+// 2. Define props with defaults
+// NOTE: In Nuxt 4, defineProps() cannot reference runtime variables (like i18n's t())
+// Use computed properties for dynamic defaults instead
+const props = withDefaults(defineProps<Props>(), {
+  label: 'Click me'
+})
+
+// 3. Define emits
+const emit = defineEmits<{
+  action: []
+}>()
+
+// 4. Use composables for business logic
+const { someMethod } = useSomeComposable()
+
+// 5. Local state
+const state = ref()
+
+// 6. Computed properties
+const computed = computed(() => ...)
+
+// 7. Methods
+const handleAction = () => {
+  emit('action')
+}
+</script>
+```
+
+**Important: Props with i18n or runtime defaults**
+
+```vue
+<!-- ❌ BAD: defineProps cannot access runtime variables -->
+<script setup lang="ts">
+const { t } = useI18n()
+withDefaults(defineProps<Props>(), {
+  label: () => t('common.label') // ERROR in Nuxt 4
+})
+</script>
+
+<!-- ✅ GOOD: Use computed properties for dynamic defaults -->
+<script setup lang="ts">
+const props = defineProps<Props>()
+const { t } = useI18n()
+const labelText = computed(() => props.label || t('common.label'))
+</script>
+```
+
+### Naming Conventions
+
+- **Files**: kebab-case (e.g., `business-list.vue`)
+- **Components**: PascalCase (e.g., `BusinessList`)
+- **Variables**: camelCase (e.g., `surfBusinesses`)
+- **Constants**: UPPER_SNAKE_CASE (e.g., `SURF_SPOT`)
+- **Composables**: camelCase starting with `use` (e.g., `useSurfBusinesses`)
+
+### State Management with Composables
+
+**Always use composables for shared state and business logic**
+
+```typescript
+// composables/useSurfBusinesses.ts
+export const useSurfBusinesses = () => {
+  // State
+  const businesses = useState<SurfBusiness[]>("surf-businesses", () => [])
+  const selectedBusiness = useState<SurfBusiness | null>(
+    "selected-business",
+    () => null
+  )
+  const isLoading = useState<boolean>("businesses-loading", () => false)
+
+  // Getters (computed)
+  const activeBusinesses = computed(() =>
+    businesses.value.filter((b) => b.isActive)
+  )
+
+  // Actions
+  const fetchBusinesses = async () => {
+    isLoading.value = true
+    try {
+      // API call
+    } finally {
+      isLoading.value = false
+    }
+  }
+
+  const selectBusiness = (business: SurfBusiness | null) => {
+    selectedBusiness.value = business
+  }
+
+  return {
+    // State (readonly)
+    businesses: readonly(businesses),
+    selectedBusiness: readonly(selectedBusiness),
+    isLoading: readonly(isLoading),
+
+    // Getters
+    activeBusinesses,
+
+    // Actions
+    fetchBusinesses,
+    selectBusiness
+  }
+}
+```
+
+### Component Patterns
+
+#### Page Components
+
+Pages should be thin - they orchestrate components and composables:
+
+```vue
+<template>
+  <div class="p-8">
+    <PageHeader :title="$t('businesses.title')" />
+    <BusinessList :businesses="filteredBusinesses" @select="handleSelect" />
+  </div>
+</template>
+
+<script setup lang="ts">
+const { filteredBusinesses, selectBusiness } = useSurfBusinesses()
+
+const handleSelect = (business: SurfBusiness) => {
+  selectBusiness(business)
+}
+</script>
+```
+
+#### Feature Components
+
+Extract repeated UI patterns into components:
+
+```vue
+<!-- components/common/PageHeader.vue -->
+<template>
+  <div class="flex justify-between items-center mb-8">
+    <div>
+      <h1 class="text-3xl font-bold text-gray-900 dark:text-white">
+        {{ title }}
+      </h1>
+      <p v-if="subtitle" class="text-gray-600 dark:text-gray-400 mt-2">
+        {{ subtitle }}
+      </p>
+    </div>
+    <slot name="actions" />
+  </div>
+</template>
+
+<script setup lang="ts">
+interface Props {
+  title: string
+  subtitle?: string
+}
+
+defineProps<Props>()
+</script>
+```
+
+### Internationalization
+
+- Use `useI18n()` composable
+- Access translations with `$t()` in templates
+- Organize translation keys by feature
+- Keep translation files in `/i18n/locales/`
+
+```vue
+<template>
+  <h1>{{ $t("businesses.title") }}</h1>
+</template>
+
+<script setup lang="ts">
+const { t } = useI18n()
+const message = computed(() => t("businesses.welcomeMessage"))
+</script>
+```
+
+## Code Quality
+
+### Linting & Formatting
+
+- Follow ESLint rules (configured in `eslint.config.mjs`)
+- Use Prettier for code formatting
+- Run `yarn lint:fix` before committing
+- Run `yarn format` for consistent formatting
+
+### Performance
+
+- Use lazy loading for components when appropriate
+- Leverage Nuxt's auto-imports
+- Use proper key attributes in v-for loops
+- Use `readonly()` when exposing state from composables
+
+### Accessibility
+
+- Nuxt UI components have built-in accessibility
+- Use semantic HTML elements
+- Include proper ARIA labels where needed
+- Ensure keyboard navigation works
+
+## Project-Specific Patterns
+
+### Business Management
+
+- Use `useSurfBusinesses` composable for business state
+- Create dedicated components for business lists, cards, forms
+- Keep business logic in composables, not in pages
+- Use TypeScript enums for business types
+
+### Form Handling
+
+- Wrap Nuxt UI form components in custom components for consistency
+- Use Nuxt UI's form validation patterns
+- Extract form logic into composables when complex
+- Handle loading and error states consistently
+
+## Common Commands
+
+- `yarn dev` - Start development server
+- `yarn build` - Build for production
+- `yarn lint` - Run linting
+- `yarn lint:fix` - Fix linting issues
+- `yarn format` - Format code
+
+## When Making Changes
+
+1. **Create components, not pages with logic** - pages orchestrate, components implement
+2. **Use composables for state** - don't manage state in pages
+3. **Wrap Nuxt UI components** - create custom components for repeated patterns
+4. **Follow TypeScript strictly** - define all interfaces
+5. **Maintain i18n** - add translations for all user-facing text
+6. **Keep it simple** - leverage Nuxt UI's built-in features
+7. **Test your changes** - ensure functionality works
+
+## Code Review Checklist
+
+- [ ] TypeScript interfaces are properly defined
+- [ ] Component is focused and single-purpose
+- [ ] Business logic is in composables, not in components
+- [ ] Nuxt UI components are used (or wrapped) appropriately
+- [ ] Tailwind classes are used consistently
+- [ ] i18n is implemented for all text
+- [ ] Component follows Composition API patterns
+- [ ] Proper error handling is implemented
+- [ ] Code follows naming conventions
+- [ ] No console.log statements in production code
+- [ ] Accessibility is considered
+
+## Example: Good vs Bad
+
+### ❌ Bad - Logic in Page
+
+```vue
+<!-- pages/businesses/index.vue -->
+<template>
+  <div class="p-8">
+    <UInput v-model="searchQuery" />
+    <div v-for="business in filteredBusinesses" :key="business.id">
+      <img :src="business.image" />
+      <h3>{{ business.name }}</h3>
+      <!-- lots of inline UI code -->
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+const businesses = ref([
+  /* data */
+])
+const searchQuery = ref("")
+const filteredBusinesses = computed(() => {
+  // filtering logic
+})
+</script>
+```
+
+### ✅ Good - Composable + Components
+
+```vue
+<!-- pages/businesses/index.vue -->
+<template>
+  <div class="p-8">
+    <PageHeader :title="$t('businesses.title')">
+      <template #actions>
+        <UButton to="/businesses/new">{{ $t("businesses.addNew") }}</UButton>
+      </template>
+    </PageHeader>
+    <BusinessSearch v-model="searchQuery" />
+    <BusinessList :businesses="filteredBusinesses" />
+  </div>
+</template>
+
+<script setup lang="ts">
+const { filteredBusinesses, setSearchQuery } = useSurfBusinesses()
+const searchQuery = computed({
+  get: () => /* from composable */,
+  set: (value) => setSearchQuery(value)
+})
+</script>
+```
+
+## Admin Panel Characteristics
+
+- **Styling**: Tailwind CSS for rapid development
+- **UI Components**: Nuxt UI v4 provides 125+ accessible components
+- **Simplicity**: Admin panels prioritize speed of development over custom branding
+- **Nuxt 4**: Using latest framework features for better DX and performance
+- **Best Practices**: Composables, TypeScript, component architecture for maintainability

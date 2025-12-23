@@ -1,0 +1,45 @@
+@import "tailwindcss" theme(static);
+@import "@nuxt/ui";
+
+@theme static {
+  --font-sans: 'Lato', sans-serif;
+
+  /* Brand Primary Color - Coral Orange (#DD6E42) */
+  --color-brand-50: #FEF5F1;
+  --color-brand-100: #FCE8DF;
+  --color-brand-200: #F9D0BF;
+  --color-brand-300: #F5B09A;
+  --color-brand-400: #F18C6E;
+  --color-brand-500: #DD6E42;
+  --color-brand-600: #C85A2F;
+  --color-brand-700: #A44623;
+  --color-brand-800: #7D3519;
+  --color-brand-900: #5A2612;
+  --color-brand-950: #331508;
+
+  /* Brand Black */
+  --color-gray-900: #333333;
+  --color-gray-950: #1a1a1a;
+
+  /* Custom Backgrounds */
+  --color-gray-50: #FAF9F7;
+
+  /* Border Color */
+  --color-border: #7C898B;
+}
+
+/* Light mode custom backgrounds */
+:root {
+  --ui-bg: #FAF9F7;
+  --ui-bg-elevated: #FCFCFC;
+  --ui-bg-inverted: #333333;
+  --ui-border: #7C898B;
+}
+
+/* Dark mode custom backgrounds */
+.dark {
+  --ui-bg: #1a1a1a;
+  --ui-bg-elevated: #2a2a2a;
+  --ui-bg-inverted: #FAF9F7;
+  --ui-border: #7C898B;
+}

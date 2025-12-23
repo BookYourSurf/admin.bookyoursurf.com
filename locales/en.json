@@ -1,0 +1,36 @@
+{
+  "common": {
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Log out",
+    "appearance": "Appearance",
+    "light": "Light",
+    "dark": "Dark",
+    "language": "Language"
+  },
+  "brand": {
+    "name": "BookYourSurf",
+    "tagline": "Admin Panel"
+  },
+  "home": {
+    "title": "Dashboard",
+    "welcome": "Welcome to BookYourSurf Admin",
+    "subtitle": "Manage your surf businesses, coaches, and services",
+    "businesses": {
+      "title": "Businesses",
+      "description": "Manage surf schools and rental shops"
+    },
+    "coaches": {
+      "title": "Coaches",
+      "description": "View and manage surf coaches"
+    },
+    "services": {
+      "title": "Services",
+      "description": "Manage lessons and rentals"
+    }
+  },
+  "navigation": {
+    "goTo": "Go to"
+  }
+}

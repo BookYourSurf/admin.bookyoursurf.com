@@ -1,0 +1,36 @@
+{
+  "common": {
+    "dashboard": "Dashboard",
+    "profile": "Profiel",
+    "settings": "Instellingen",
+    "logout": "Uitloggen",
+    "appearance": "Weergave",
+    "light": "Licht",
+    "dark": "Donker",
+    "language": "Taal"
+  },
+  "brand": {
+    "name": "BookYourSurf",
+    "tagline": "Beheerpaneel"
+  },
+  "home": {
+    "title": "Dashboard",
+    "welcome": "Welkom bij BookYourSurf Admin",
+    "subtitle": "Beheer je surfbedrijven, coaches en diensten",
+    "businesses": {
+      "title": "Bedrijven",
+      "description": "Beheer surfscholen en verhuurwinkels"
+    },
+    "coaches": {
+      "title": "Coaches",
+      "description": "Bekijk en beheer surfcoaches"
+    },
+    "services": {
+      "title": "Diensten",
+      "description": "Beheer lessen en verhuur"
+    }
+  },
+  "navigation": {
+    "goTo": "Ga naar"
+  }
+}
