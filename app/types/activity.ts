@@ -1,34 +1,34 @@
 // Activity-related types
 
-import type { GeoPoint, Rating } from "./common"
-import type { SurfBoard } from "./surfboard"
+import type { GeoPoint, Rating } from './common'
+import type { SurfBoard } from './surfboard'
 
 export enum SkillLevel {
-  BEGINNER = "Beginner",
-  INTERMEDIATE = "Intermediate",
-  ADVANCED = "Advanced"
+  BEGINNER = 'Beginner',
+  INTERMEDIATE = 'Intermediate',
+  ADVANCED = 'Advanced'
 }
 
 export enum PaymentMethod {
-  CASH = "Cash",
-  CARD = "Card",
-  BANK_TRANSFER = "Bank Transfer",
-  PAYPAL = "PayPal"
+  CASH = 'Cash',
+  CARD = 'Card',
+  BANK_TRANSFER = 'Bank Transfer',
+  PAYPAL = 'PayPal'
 }
 
 export enum Language {
-  ENGLISH = "English",
-  INDONESIAN = "Indonesian",
-  DUTCH = "Dutch",
-  GERMAN = "German",
-  FRENCH = "French"
+  ENGLISH = 'English',
+  INDONESIAN = 'Indonesian',
+  DUTCH = 'Dutch',
+  GERMAN = 'German',
+  FRENCH = 'French'
 }
 
 export enum ActivityType {
-  LESSONS = "Lessons",
-  COACHING = "Coaching",
-  PHOTOGRAPHY = "Photography",
-  RENTAL = "Rental"
+  LESSONS = 'Lessons',
+  COACHING = 'Coaching',
+  PHOTOGRAPHY = 'Photography',
+  RENTAL = 'Rental'
 }
 
 export interface Activity {

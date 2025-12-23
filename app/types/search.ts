@@ -1,8 +1,8 @@
 // types/search.ts
 export enum SearchSuggestionType {
-  BUSINESS = "business",
-  PLACE = "place",
-  BREAK = "break"
+  BUSINESS = 'business',
+  PLACE = 'place',
+  BREAK = 'break'
 }
 
 export interface SearchSuggestion {

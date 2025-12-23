@@ -1,20 +1,20 @@
 // Surfboard-related types
 
 export enum BoardType {
-  LONGBOARD = "Longboard",
-  SHORTBOARD = "Shortboard",
-  FISH = "Fish",
-  FUNBOARD = "Funboard",
-  GUN = "Gun",
-  MINI_MAL = "Mini Mal",
-  SOFTBOARD = "Softboard",
-  FOAM_BOARD = "Foam Board"
+  LONGBOARD = 'Longboard',
+  SHORTBOARD = 'Shortboard',
+  FISH = 'Fish',
+  FUNBOARD = 'Funboard',
+  GUN = 'Gun',
+  MINI_MAL = 'Mini Mal',
+  SOFTBOARD = 'Softboard',
+  FOAM_BOARD = 'Foam Board'
 }
 
 export enum BoardCondition {
-  EXCELLENT = "Excellent",
-  GOOD = "Good",
-  FAIR = "Fair"
+  EXCELLENT = 'Excellent',
+  GOOD = 'Good',
+  FAIR = 'Fair'
 }
 
 export interface SurfBoard {

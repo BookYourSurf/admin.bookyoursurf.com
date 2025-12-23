@@ -31,4 +31,3 @@ export const useDashboardFeatures = () => {
     features: readonly(features)
   }
 }
-

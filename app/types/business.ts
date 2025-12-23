@@ -1,11 +1,11 @@
-import type { GeoPoint, Rating } from "./common"
+import type { GeoPoint, Rating } from './common'
 
 export enum SurfBusinessType {
-  SURF_SPOT = "Surf Spot",
-  SURF_SHOP = "Surf Shop",
-  SURF_GUIDE = "Surf Guide",
-  SURF_COACHING = "Surf Coaching",
-  PHOTOGRAPHY = "Photography"
+  SURF_SPOT = 'Surf Spot',
+  SURF_SHOP = 'Surf Shop',
+  SURF_GUIDE = 'Surf Guide',
+  SURF_COACHING = 'Surf Coaching',
+  PHOTOGRAPHY = 'Photography'
 }
 
 export interface SurfBusiness {
