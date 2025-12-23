@@ -10,7 +10,8 @@
     "dark": "Dark",
     "primary": "Primary",
     "neutral": "Neutral",
-    "language": "Language"
+    "language": "Language",
+    "retry": "Retry"
   },
   "brand": {
     "name": "BookYourSurf",
@@ -35,6 +36,26 @@
   },
   "navigation": {
     "goTo": "Go to"
+  },
+  "businesses": {
+    "title": "Businesses",
+    "subtitle": "Manage all surf businesses, shops, guides, and services",
+    "addNew": "Add Business",
+    "searchPlaceholder": "Search businesses...",
+    "filterByType": "Filter by type",
+    "filterByStatus": "Filter by status",
+    "clearFilters": "Clear filters",
+    "allTypes": "All types",
+    "allStatuses": "All statuses",
+    "statusActive": "Active",
+    "statusInactive": "Inactive",
+    "statusPending": "Pending approval",
+    "noBusinessesFound": "No businesses found matching your filters",
+    "stats": {
+      "total": "Total Businesses",
+      "active": "Active",
+      "inactive": "Inactive",
+      "pending": "Pending"
+    }
   }
 }
-

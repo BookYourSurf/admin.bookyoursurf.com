@@ -1,9 +1,9 @@
 <template>
   <UDashboardPanel id="home">
     <template #header>
-      <UDashboardNavbar :title="$t('home.title')">
+      <UDashboardNavbar :title="$t('home.title')" class="bg-elevated">
         <template #leading>
-          <UDashboardSidebarCollapse />
+          <UDashboardSidebarCollapse class="bg-elevated" />
         </template>
       </UDashboardNavbar>
     </template>

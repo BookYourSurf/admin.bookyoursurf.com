@@ -10,7 +10,8 @@
     "dark": "Donker",
     "primary": "Primair",
     "neutral": "Neutraal",
-    "language": "Taal"
+    "language": "Taal",
+    "retry": "Opnieuw proberen"
   },
   "brand": {
     "name": "BookYourSurf",
@@ -35,6 +36,26 @@
   },
   "navigation": {
     "goTo": "Ga naar"
+  },
+  "businesses": {
+    "title": "Bedrijven",
+    "subtitle": "Beheer alle surfbedrijven, winkels, gidsen en diensten",
+    "addNew": "Bedrijf toevoegen",
+    "searchPlaceholder": "Zoek bedrijven...",
+    "filterByType": "Filter op type",
+    "filterByStatus": "Filter op status",
+    "clearFilters": "Filters wissen",
+    "allTypes": "Alle types",
+    "allStatuses": "Alle statussen",
+    "statusActive": "Actief",
+    "statusInactive": "Inactief",
+    "statusPending": "In afwachting van goedkeuring",
+    "noBusinessesFound": "Geen bedrijven gevonden die overeenkomen met je filters",
+    "stats": {
+      "total": "Totaal aantal bedrijven",
+      "active": "Actief",
+      "inactive": "Inactief",
+      "pending": "In behandeling"
+    }
   }
 }
-

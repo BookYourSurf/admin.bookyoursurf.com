@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+
   modules: [
     '@nuxt/eslint',
     '@nuxt/ui',
@@ -8,11 +9,43 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts'
   ],
 
+  components: [
+    {
+      path: '~/components/common',
+      pathPrefix: false
+    },
+    {
+      path: '~/components/business',
+      pathPrefix: false
+    },
+    {
+      path: '~/components/dashboard',
+      pathPrefix: false
+    },
+    {
+      path: '~/components/customers',
+      pathPrefix: false
+    },
+    {
+      path: '~/components/inbox',
+      pathPrefix: false
+    },
+    {
+      path: '~/components/settings',
+      pathPrefix: false
+    },
+    {
+      path: '~/components',
+      pathPrefix: false
+    }
+  ],
+
   devtools: {
     enabled: true
   },
 
   css: ['~/assets/css/main.css'],
+  srcDir: 'app/',
 
   routeRules: {
     '/api/**': {
@@ -54,7 +87,7 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'en',
     strategy: 'no_prefix',
-    langDir: 'locales/',
+    langDir: '../i18n/locales/',
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',

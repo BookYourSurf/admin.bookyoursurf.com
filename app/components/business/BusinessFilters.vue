@@ -6,21 +6,22 @@
           :model-value="searchQuery"
           icon="i-heroicons-magnifying-glass"
           :placeholder="$t('businesses.searchPlaceholder')"
-          @update:model-value="handleSearchChange"
+          class="bg-elevated border-default"
+          @update:model-value="setSearchQuery"
         />
       </div>
       <USelect
         :model-value="typeFilter"
         :options="typeOptions"
         :placeholder="$t('businesses.filterByType')"
-        class="min-w-[200px]"
+        class="min-w-[200px] bg-elevated"
         @update:model-value="handleTypeChange"
       />
       <USelect
         :model-value="statusFilter"
         :options="statusOptions"
         :placeholder="$t('businesses.filterByStatus')"
-        class="min-w-[200px]"
+        class="min-w-[200px] bg-elevated"
         @update:model-value="handleStatusChange"
       />
       <UButton
@@ -28,7 +29,7 @@
         variant="ghost"
         color="neutral"
         icon="i-heroicons-x-mark"
-        @click="handleClearFilters"
+        @click="clearFilters"
       >
         {{ $t('businesses.clearFilters') }}
       </UButton>
@@ -37,58 +38,44 @@
 </template>
 
 <script setup lang="ts">
-import { SurfBusinessType } from "~/types/business"
-
-interface Props {
-  searchQuery: string
-  typeFilter: SurfBusinessType | null
-  statusFilter: "all" | "active" | "inactive" | "pending"
-}
-
-const props = defineProps<Props>()
-
-const emit = defineEmits<{
-  searchChange: [query: string]
-  typeChange: [type: SurfBusinessType | null]
-  statusChange: [status: "all" | "active" | "inactive" | "pending"]
-  clearFilters: []
-}>()
+import { SurfBusinessType } from '~/types/business'
 
 const { t } = useI18n()
 
+const {
+  searchQuery,
+  typeFilter,
+  statusFilter,
+  setSearchQuery,
+  setTypeFilter,
+  setStatusFilter,
+  clearFilters
+} = useSurfBusinesses()
+
 const typeOptions = computed(() => [
-  { label: t("businesses.allTypes"), value: null },
-  ...Object.values(SurfBusinessType).map((type) => ({
+  { label: t('businesses.allTypes'), value: null },
+  ...Object.values(SurfBusinessType).map(type => ({
     label: type,
     value: type
   }))
 ])
 
 const statusOptions = computed(() => [
-  { label: t("businesses.allStatuses"), value: "all" },
-  { label: t("businesses.statusActive"), value: "active" },
-  { label: t("businesses.statusInactive"), value: "inactive" },
-  { label: t("businesses.statusPending"), value: "pending" }
+  { label: t('businesses.allStatuses'), value: 'all' },
+  { label: t('businesses.statusActive'), value: 'active' },
+  { label: t('businesses.statusInactive'), value: 'inactive' },
+  { label: t('businesses.statusPending'), value: 'pending' }
 ])
 
 const hasActiveFilters = computed(() => {
-  return props.searchQuery !== "" || props.typeFilter !== null || props.statusFilter !== "all"
+  return searchQuery.value !== '' || typeFilter.value !== null || statusFilter.value !== 'all'
 })
 
-const handleSearchChange = (value: string) => {
-  emit("searchChange", value)
+const handleTypeChange = (value: string | number | boolean | bigint | null | undefined) => {
+  setTypeFilter(value as SurfBusinessType | null)
 }
 
-const handleTypeChange = (value: SurfBusinessType | null) => {
-  emit("typeChange", value)
-}
-
-const handleStatusChange = (value: "all" | "active" | "inactive" | "pending") => {
-  emit("statusChange", value)
-}
-
-const handleClearFilters = () => {
-  emit("clearFilters")
+const handleStatusChange = (value: string | number | boolean | bigint | null | undefined) => {
+  setStatusFilter(value as 'all' | 'active' | 'inactive' | 'pending')
 }
 </script>
-

@@ -1,12 +1,12 @@
 <template>
-  <UCard class="hover:shadow-lg transition-shadow cursor-pointer" @click="handleClick">
+  <UCard class="bg-elevated hover:shadow-lg transition-shadow cursor-pointer" @click="handleClick">
     <div class="flex gap-4">
-      <div class="flex-shrink-0">
+      <div class="shrink-0">
         <img
           :src="business.image"
           :alt="business.name"
           class="size-24 object-cover rounded-lg"
-        />
+        >
       </div>
       <div class="flex-1 min-w-0">
         <div class="flex items-start justify-between gap-2 mb-2">
@@ -18,7 +18,7 @@
               {{ business.address }}
             </p>
           </div>
-          <div class="flex gap-2 flex-shrink-0">
+          <div class="flex gap-2 shrink-0">
             <UBadge :color="statusColor" variant="subtle">
               {{ statusLabel }}
             </UBadge>
@@ -27,12 +27,9 @@
             </UBadge>
           </div>
         </div>
-        <p class="text-sm text-gray-700 dark:text-gray-300 line-clamp-2 mb-3">
-          {{ business.description }}
-        </p>
         <div class="flex items-center gap-4 text-sm">
           <div class="flex items-center gap-1">
-            <UIcon name="i-heroicons-star-solid" class="size-4 text-yellow-500" />
+            <UIcon name="i-heroicons-star-solid" class="size-5 text-primary" />
             <span class="font-medium">{{ business.aggregatedRating.rating.toFixed(1) }}</span>
             <span class="text-gray-500 dark:text-gray-400">
               ({{ business.aggregatedRating.reviewCount }})
@@ -49,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import type { SurfBusiness } from "~/types/business"
+import type { SurfBusiness } from '~/types/business'
 
 interface Props {
   business: SurfBusiness
@@ -62,19 +59,18 @@ const emit = defineEmits<{
 }>()
 
 const statusColor = computed(() => {
-  if (!props.business.isApproved) return "orange"
-  if (props.business.isActive) return "green"
-  return "red"
+  if (!props.business.isApproved) return 'warning'
+  if (props.business.isActive) return 'success'
+  return 'error'
 })
 
 const statusLabel = computed(() => {
-  if (!props.business.isApproved) return "Pending"
-  if (props.business.isActive) return "Active"
-  return "Inactive"
+  if (!props.business.isApproved) return 'Pending'
+  if (props.business.isActive) return 'Active'
+  return 'Inactive'
 })
 
 const handleClick = () => {
-  emit("click", props.business)
+  emit('click', props.business)
 }
 </script>
-

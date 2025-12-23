@@ -16,15 +16,15 @@
 </template>
 
 <script setup lang="ts">
-import type { SurfBusiness } from "~/types/business"
+import type { SurfBusiness } from '~/types/business'
 
 interface Props {
   businesses: SurfBusiness[]
   emptyMessage?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  emptyMessage: "No businesses found"
+withDefaults(defineProps<Props>(), {
+  emptyMessage: 'No businesses found'
 })
 
 const emit = defineEmits<{
@@ -32,7 +32,6 @@ const emit = defineEmits<{
 }>()
 
 const handleBusinessClick = (business: SurfBusiness) => {
-  emit("select", business)
+  emit('select', business)
 }
 </script>
-

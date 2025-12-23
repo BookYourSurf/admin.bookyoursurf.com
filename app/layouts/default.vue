@@ -5,8 +5,12 @@
       v-model:open="open"
       collapsible
       resizable
-      class="bg-elevated/25"
-      :ui="{ footer: 'lg:border-t lg:border-default' }"
+      class="bg-elevated"
+      :ui="{
+        footer: 'lg:border-t lg:border-default',
+        root: 'bg-elevated',
+        content: 'bg-elevated'
+      }"
     >
       <template #header="{ collapsed }">
         <div class="flex items-center gap-3 px-3 py-4">
@@ -25,13 +29,14 @@
       <template #default="{ collapsed }">
         <UDashboardSearchButton
           :collapsed="collapsed"
-          class="bg-transparent ring-default"
+          class="bg-white ring-default"
         />
 
         <UNavigationMenu
           :collapsed="collapsed"
           :items="navigationLinks"
           orientation="vertical"
+          class="bg-white"
           tooltip
           popover
         />
@@ -51,9 +56,6 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
 
-const route = useRoute()
-const { closeSidebar } = useDashboard()
-
 const open = ref(false)
 
 const { t } = useI18n()
@@ -62,6 +64,13 @@ const navigationLinks = computed(() => [[{
   label: t('common.dashboard'),
   icon: 'i-lucide-layout-dashboard',
   to: '/',
+  onSelect: () => {
+    open.value = false
+  }
+}, {
+  label: t('businesses.title'),
+  icon: 'i-heroicons-building-storefront',
+  to: '/businesses',
   onSelect: () => {
     open.value = false
   }
