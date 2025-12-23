@@ -35,4 +35,8 @@ export interface SurfBoard {
   pricePerWeek?: number
   isAvailable: boolean
   features?: string[] // e.g., ["FCS fins", "Leash included", "Wax applied"]
+  rating?: {
+    rating: number
+    reviewCount: number
+  }
 }

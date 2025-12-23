@@ -36,7 +36,6 @@
           :collapsed="collapsed"
           :items="navigationLinks"
           orientation="vertical"
-          class="bg-white"
           tooltip
           popover
         />
@@ -71,6 +70,13 @@ const navigationLinks = computed(() => [[{
   label: t('businesses.title'),
   icon: 'i-heroicons-building-storefront',
   to: '/businesses',
+  onSelect: () => {
+    open.value = false
+  }
+}, {
+  label: t('surfboards.title'),
+  icon: 'i-heroicons-rectangle-stack',
+  to: '/surfboards',
   onSelect: () => {
     open.value = false
   }

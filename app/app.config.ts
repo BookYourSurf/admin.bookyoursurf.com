@@ -66,6 +66,41 @@ export default defineAppConfig({
       slots: {
         content: 'bg-elevated ring ring-default'
       }
+    },
+    // NavigationMenu
+    navigationMenu: {
+      variants: {
+        active: {
+          true: {
+            link: 'bg-brand-500 text-white dark:bg-brand-400',
+            linkLabel: 'text-white font-semibold',
+            linkLeadingIcon: 'text-white',
+            childLink: 'bg-brand-500 text-white dark:bg-brand-400',
+            childLinkIcon: 'text-white'
+          },
+          false: {
+            link: 'text-muted hover:text-default hover:bg-elevated',
+            linkLeadingIcon: 'text-dimmed',
+            childLink: [
+              'hover:before:bg-elevated/50 text-default hover:text-highlighted',
+              'transition-colors before:transition-colors'
+            ],
+            childLinkIcon: [
+              'text-dimmed group-hover:text-default',
+              'transition-colors'
+            ]
+          }
+        }
+      },
+      compoundVariants: [
+        {
+          orientation: 'vertical',
+          active: true,
+          class: {
+            link: 'border-l-2 border-brand-500 dark:border-brand-400'
+          }
+        }
+      ]
     }
   }
 })
