@@ -120,9 +120,14 @@
     "modal": {
       "addTitle": "Nieuwe surfplank toevoegen",
       "addDescription": "Voeg een nieuwe surfplank toe aan je voorraad",
+      "editTitle": "Surfplank bewerken",
+      "editDescription": "Update surfplank details",
       "createButton": "Surfplank aanmaken",
+      "updateButton": "Surfplank bijwerken",
       "successTitle": "Succes",
-      "successDescription": "Surfplank \"{name}\" is aangemaakt"
+      "successDescription": "Surfplank \"{name}\" is aangemaakt",
+      "updateSuccessTitle": "Succes",
+      "updateSuccessDescription": "Surfplank \"{name}\" is bijgewerkt"
     },
     "form": {
       "name": "Plank naam",

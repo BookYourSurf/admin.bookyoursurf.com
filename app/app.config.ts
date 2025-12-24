@@ -8,7 +8,9 @@ export default defineAppConfig({
     card: {
       slots: {
         root: 'bg-elevated ring-default',
-        body: 'bg-elevated ring-default'
+        header: 'bg-elevated ring-default sm:p-4',
+        body: 'bg-elevated ring-default sm:p-4',
+        footer: 'bg-elevated ring-default sm:p-4'
       }
     },
     // Input

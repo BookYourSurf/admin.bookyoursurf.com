@@ -27,7 +27,7 @@
           :src="URL.createObjectURL(file)"
           alt="Preview"
           class="size-16 object-cover rounded"
-        />
+        >
         <UIcon
           v-else
           name="i-heroicons-document"
@@ -77,7 +77,7 @@ const emit = defineEmits<{
 
 const files = computed({
   get: () => props.modelValue || [],
-  set: (value) => emit('update:modelValue', value)
+  set: value => emit('update:modelValue', value)
 })
 
 const formatFileSize = (bytes: number): string => {
@@ -90,4 +90,3 @@ const formatFileSize = (bytes: number): string => {
   }
 }
 </script>
-

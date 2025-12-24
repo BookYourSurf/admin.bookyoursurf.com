@@ -120,9 +120,14 @@
     "modal": {
       "addTitle": "Add New Surfboard",
       "addDescription": "Add a new surfboard to your inventory",
+      "editTitle": "Edit Surfboard",
+      "editDescription": "Update surfboard details",
       "createButton": "Create Surfboard",
+      "updateButton": "Update Surfboard",
       "successTitle": "Success",
-      "successDescription": "Surfboard \"{name}\" has been created"
+      "successDescription": "Surfboard \"{name}\" has been created",
+      "updateSuccessTitle": "Success",
+      "updateSuccessDescription": "Surfboard \"{name}\" has been updated"
     },
     "form": {
       "name": "Board Name",
