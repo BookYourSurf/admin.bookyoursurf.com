@@ -94,6 +94,13 @@ const navigationLinks = computed(() => [[{
   onSelect: () => {
     open.value = false
   }
+}, {
+  label: 'Customer Picker Demo',
+  icon: 'i-heroicons-users',
+  to: '/test/customer-picker',
+  onSelect: () => {
+    open.value = false
+  }
 }]] satisfies NavigationMenuItem[][])
 
 const searchGroups = computed(() => [{

@@ -193,6 +193,8 @@
       "timeWindow": "Time Window",
       "timeWindowPlaceholder": "Select time window",
       "specificTime": "Specific Time (Optional)",
+      "customers": "Customers",
+      "customersPlaceholder": "Add customers to session",
       "customerName": "Customer Name",
       "customerNamePlaceholder": "Enter customer name",
       "customerEmail": "Customer Email",
@@ -206,6 +208,7 @@
     "validation": {
       "templateRequired": "Please select a lesson template",
       "dateRequired": "Please select a date",
+      "customersRequired": "Please add at least one customer",
       "customerNameMinLength": "Customer name must be at least 2 characters",
       "customerEmailInvalid": "Please enter a valid email address"
     },

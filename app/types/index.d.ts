@@ -1,6 +1,7 @@
 export * from './activity'
 export * from './business'
 export * from './common'
+export * from './customer'
 export * from './enums'
 export * from './search'
 export * from './session'

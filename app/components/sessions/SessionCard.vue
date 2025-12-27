@@ -26,7 +26,21 @@
 
       <DetailItem icon="i-heroicons-map-pin" :text="session.location" truncate />
 
-      <DetailItem icon="i-heroicons-user-circle" :text="session.customerName" truncate />
+      <div class="space-y-2">
+        <p class="text-xs font-medium text-gray-700 dark:text-gray-300">
+          Customers ({{ session.customers.length }})
+        </p>
+        <div class="space-y-2">
+          <AvatarText
+            v-for="customer in session.customers"
+            :key="customer.id"
+            :avatar="customer.avatar"
+            :name="customer.name"
+            :subtitle="customer.email"
+            size="sm"
+          />
+        </div>
+      </div>
 
       <div v-if="session.notes" class="pt-2 border-t border-gray-200 dark:border-gray-700">
         <p class="text-xs text-gray-600 dark:text-gray-400 italic">

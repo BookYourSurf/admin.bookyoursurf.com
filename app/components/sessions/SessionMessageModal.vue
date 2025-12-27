@@ -19,7 +19,7 @@
             {{ session.serviceName }}
           </p>
           <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
-            {{ formattedDate }} - {{ session.customerName }}
+            {{ formattedDate }} - {{ customerNames }}
           </p>
         </div>
 
@@ -83,6 +83,12 @@ const isSubmitting = ref(false)
 
 const formattedDate = computed(() => {
   return d(new Date(props.session.date), 'long')
+})
+
+const customerNames = computed(() => {
+  if (props.session.customers.length === 0) return 'No customers'
+  if (props.session.customers.length === 1) return props.session.customers[0].name
+  return `${props.session.customers[0].name} +${props.session.customers.length - 1} more`
 })
 
 const handleSubmit = async () => {

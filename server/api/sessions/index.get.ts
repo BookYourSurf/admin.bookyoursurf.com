@@ -23,9 +23,26 @@ export default defineEventHandler(() => {
       instructorName: 'Made Surya',
       instructorId: 'inst-1',
       location: 'Canggu Beach',
-      customerName: 'John Smith',
-      customerId: 'cust-1',
-      customerEmail: 'john@example.com',
+      customers: [
+        {
+          id: '1',
+          name: 'John Doe',
+          email: 'john@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=John',
+            alt: 'John Doe'
+          }
+        },
+        {
+          id: '2',
+          name: 'Jane Smith',
+          email: 'jane@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Jane',
+            alt: 'Jane Smith'
+          }
+        }
+      ],
       level: 'beginner' as const,
       notes: 'Customer requested early morning session if possible',
       createdAt: new Date().toISOString(),
@@ -45,9 +62,17 @@ export default defineEventHandler(() => {
       instructorName: 'Wayan Agung',
       instructorId: 'inst-2',
       location: 'Uluwatu',
-      customerName: 'Sarah Johnson',
-      customerId: 'cust-2',
-      customerEmail: 'sarah@example.com',
+      customers: [
+        {
+          id: '3',
+          name: 'Bob Wilson',
+          email: 'bob@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Bob',
+            alt: 'Bob Wilson'
+          }
+        }
+      ],
       level: 'intermediate' as const,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
@@ -65,9 +90,44 @@ export default defineEventHandler(() => {
       instructorName: 'Ketut Dharma',
       instructorId: 'inst-3',
       location: 'Canggu Beach',
-      customerName: 'Emma Wilson',
-      customerId: 'cust-3',
-      customerEmail: 'emma@example.com',
+      customers: [
+        {
+          id: '4',
+          name: 'Alice Johnson',
+          email: 'alice@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Alice',
+            alt: 'Alice Johnson'
+          }
+        },
+        {
+          id: '5',
+          name: 'Charlie Brown',
+          email: 'charlie@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Charlie',
+            alt: 'Charlie Brown'
+          }
+        },
+        {
+          id: '6',
+          name: 'Diana Prince',
+          email: 'diana@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Diana',
+            alt: 'Diana Prince'
+          }
+        },
+        {
+          id: '7',
+          name: 'Eva Martinez',
+          email: 'eva@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Eva',
+            alt: 'Eva Martinez'
+          }
+        }
+      ],
       level: 'beginner' as const,
       notes: 'Group booking - family of 4',
       createdAt: new Date().toISOString(),
@@ -87,9 +147,35 @@ export default defineEventHandler(() => {
       instructorName: 'Wayan Agung',
       instructorId: 'inst-2',
       location: 'Padang Padang',
-      customerName: 'Mike Brown',
-      customerId: 'cust-4',
-      customerEmail: 'mike@example.com',
+      customers: [
+        {
+          id: '8',
+          name: 'Frank Chen',
+          email: 'frank@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Frank',
+            alt: 'Frank Chen'
+          }
+        },
+        {
+          id: '1',
+          name: 'John Doe',
+          email: 'john@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=John',
+            alt: 'John Doe'
+          }
+        },
+        {
+          id: '3',
+          name: 'Bob Wilson',
+          email: 'bob@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Bob',
+            alt: 'Bob Wilson'
+          }
+        }
+      ],
       level: 'advanced' as const,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
@@ -108,9 +194,26 @@ export default defineEventHandler(() => {
       instructorName: 'Made Surya',
       instructorId: 'inst-1',
       location: 'Uluwatu',
-      customerName: 'Lisa Davis',
-      customerId: 'cust-5',
-      customerEmail: 'lisa@example.com',
+      customers: [
+        {
+          id: '2',
+          name: 'Jane Smith',
+          email: 'jane@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Jane',
+            alt: 'Jane Smith'
+          }
+        },
+        {
+          id: '6',
+          name: 'Diana Prince',
+          email: 'diana@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Diana',
+            alt: 'Diana Prince'
+          }
+        }
+      ],
       level: 'intermediate' as const,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
@@ -129,9 +232,17 @@ export default defineEventHandler(() => {
       instructorName: 'Ketut Dharma',
       instructorId: 'inst-3',
       location: 'Seminyak Beach',
-      customerName: 'Tom Anderson',
-      customerId: 'cust-6',
-      customerEmail: 'tom@example.com',
+      customers: [
+        {
+          id: '4',
+          name: 'Alice Johnson',
+          email: 'alice@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Alice',
+            alt: 'Alice Johnson'
+          }
+        }
+      ],
       level: 'beginner' as const,
       notes: 'Customer requested to change from afternoon to morning',
       createdAt: new Date().toISOString(),
@@ -151,9 +262,35 @@ export default defineEventHandler(() => {
       instructorName: 'Made Surya',
       instructorId: 'inst-1',
       location: 'Canggu Beach',
-      customerName: 'Anna Martinez',
-      customerId: 'cust-7',
-      customerEmail: 'anna@example.com',
+      customers: [
+        {
+          id: '7',
+          name: 'Eva Martinez',
+          email: 'eva@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Eva',
+            alt: 'Eva Martinez'
+          }
+        },
+        {
+          id: '5',
+          name: 'Charlie Brown',
+          email: 'charlie@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Charlie',
+            alt: 'Charlie Brown'
+          }
+        },
+        {
+          id: '1',
+          name: 'John Doe',
+          email: 'john@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=John',
+            alt: 'John Doe'
+          }
+        }
+      ],
       level: 'beginner' as const,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
@@ -171,9 +308,26 @@ export default defineEventHandler(() => {
       instructorName: 'Wayan Agung',
       instructorId: 'inst-2',
       location: 'Bingin Beach',
-      customerName: 'Chris Taylor',
-      customerId: 'cust-8',
-      customerEmail: 'chris@example.com',
+      customers: [
+        {
+          id: '8',
+          name: 'Frank Chen',
+          email: 'frank@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Frank',
+            alt: 'Frank Chen'
+          }
+        },
+        {
+          id: '3',
+          name: 'Bob Wilson',
+          email: 'bob@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Bob',
+            alt: 'Bob Wilson'
+          }
+        }
+      ],
       level: 'advanced' as const,
       notes: 'Experienced surfer looking for barrels',
       createdAt: new Date().toISOString(),
@@ -193,9 +347,17 @@ export default defineEventHandler(() => {
       instructorName: 'Made Surya',
       instructorId: 'inst-1',
       location: 'Uluwatu',
-      customerName: 'Rachel Green',
-      customerId: 'cust-9',
-      customerEmail: 'rachel@example.com',
+      customers: [
+        {
+          id: '2',
+          name: 'Jane Smith',
+          email: 'jane@example.com',
+          avatar: {
+            src: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Jane',
+            alt: 'Jane Smith'
+          }
+        }
+      ],
       level: 'intermediate' as const,
       notes: 'Customer cancelled due to illness',
       createdAt: new Date().toISOString(),

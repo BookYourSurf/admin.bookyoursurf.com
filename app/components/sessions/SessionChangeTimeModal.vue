@@ -19,7 +19,7 @@
             {{ session.serviceName }}
           </p>
           <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
-            {{ session.customerName }}
+            {{ customerNames }}
           </p>
         </div>
 
@@ -78,6 +78,12 @@ const toast = useToast()
 
 const open = ref(false)
 const isSubmitting = ref(false)
+
+const customerNames = computed(() => {
+  if (props.session.customers.length === 0) return 'No customers'
+  if (props.session.customers.length === 1) return props.session.customers[0].name
+  return `${props.session.customers[0].name} +${props.session.customers.length - 1} more`
+})
 
 const formData = reactive({
   date: '',

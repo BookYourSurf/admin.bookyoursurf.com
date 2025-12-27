@@ -46,25 +46,12 @@
     </div>
 
     <UFormField
-      :label="$t('sessions.form.customerName')"
-      name="customerName"
+      :label="$t('sessions.form.customers')"
+      name="customers"
     >
-      <UInput
-        v-model="state.customerName"
-        :placeholder="$t('sessions.form.customerNamePlaceholder')"
-        class="w-full"
-      />
-    </UFormField>
-
-    <UFormField
-      :label="$t('sessions.form.customerEmail')"
-      name="customerEmail"
-    >
-      <UInput
-        v-model="state.customerEmail"
-        type="email"
-        :placeholder="$t('sessions.form.customerEmailPlaceholder')"
-        class="w-full"
+      <CustomerPickerMultipleInline
+        v-model="state.customers"
+        :placeholder="$t('sessions.form.customersPlaceholder')"
       />
     </UFormField>
 
@@ -143,14 +130,19 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const { t } = useI18n()
+const { fetchCustomers } = useCustomers()
+
+// Fetch customers on mount
+onMounted(() => {
+  fetchCustomers()
+})
 
 const schema = z.object({
   templateId: z.string().min(1, t('sessions.validation.templateRequired')),
   date: z.string().min(1, t('sessions.validation.dateRequired')),
   timeWindow: z.nativeEnum(TimeWindow),
   specificTime: z.string().optional(),
-  customerName: z.string().min(2, t('sessions.validation.customerNameMinLength')),
-  customerEmail: z.string().email(t('sessions.validation.customerEmailInvalid')),
+  customers: z.array(z.any()).nonempty(t('sessions.validation.customersRequired')),
   groupSize: z.number().min(1),
   level: z.nativeEnum(SkillLevel),
   notes: z.string().optional()
@@ -188,8 +180,7 @@ const state = reactive<Partial<Schema>>({
   date: props.initialData?.date,
   timeWindow: props.initialData?.timeWindow || TimeWindow.MORNING,
   specificTime: props.initialData?.specificTime,
-  customerName: props.initialData?.customerName,
-  customerEmail: props.initialData?.customerEmail,
+  customers: props.initialData?.customers || [],
   groupSize: props.initialData?.groupSize || 1,
   level: props.initialData?.level || SkillLevel.BEGINNER,
   notes: props.initialData?.notes
@@ -204,8 +195,7 @@ watch(
         date: newData.date,
         timeWindow: newData.timeWindow || TimeWindow.MORNING,
         specificTime: newData.specificTime,
-        customerName: newData.customerName,
-        customerEmail: newData.customerEmail,
+        customers: newData.customers || [],
         groupSize: newData.groupSize || 1,
         level: newData.level || SkillLevel.BEGINNER,
         notes: newData.notes
@@ -226,8 +216,7 @@ defineExpose({
       date: undefined,
       timeWindow: TimeWindow.MORNING,
       specificTime: undefined,
-      customerName: undefined,
-      customerEmail: undefined,
+      customers: [],
       groupSize: 1,
       level: SkillLevel.BEGINNER,
       notes: undefined

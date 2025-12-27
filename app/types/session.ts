@@ -40,9 +40,15 @@ export interface Session {
   instructorName: string
   instructorId: string
   location: string
-  customerName: string
-  customerId: string
-  customerEmail: string
+  customers: Array<{
+    id: string
+    name: string
+    email: string
+    avatar?: {
+      src: string
+      alt: string
+    }
+  }>
   level: SkillLevel
   notes?: string
   createdAt: string

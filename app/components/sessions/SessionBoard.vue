@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-4">
       <SessionBoardColumn
         :title="$t('sessions.columns.needsConfirmation')"
@@ -15,15 +15,6 @@
         :sessions="sessionsByState.confirmed"
         badge-color="primary"
         :empty-message="$t('sessions.emptyStates.confirmed')"
-      />
-    </div>
-
-    <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-4">
-      <SessionBoardColumn
-        :title="$t('sessions.columns.completed')"
-        :sessions="sessionsByState.completed"
-        badge-color="success"
-        :empty-message="$t('sessions.emptyStates.completed')"
       />
     </div>
 

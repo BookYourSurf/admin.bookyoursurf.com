@@ -193,6 +193,8 @@
       "timeWindow": "Tijdvenster",
       "timeWindowPlaceholder": "Selecteer tijdvenster",
       "specificTime": "Specifieke tijd (optioneel)",
+      "customers": "Klanten",
+      "customersPlaceholder": "Voeg klanten toe aan sessie",
       "customerName": "Klantnaam",
       "customerNamePlaceholder": "Voer klantnaam in",
       "customerEmail": "Klant e-mail",
@@ -206,6 +208,7 @@
     "validation": {
       "templateRequired": "Selecteer een les sjabloon",
       "dateRequired": "Selecteer een datum",
+      "customersRequired": "Voeg minimaal één klant toe",
       "customerNameMinLength": "Klantnaam moet minimaal 2 tekens bevatten",
       "customerEmailInvalid": "Voer een geldig e-mailadres in"
     },
