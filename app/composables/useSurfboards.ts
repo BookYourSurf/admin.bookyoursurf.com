@@ -1,5 +1,4 @@
-import type { SurfBoard } from '~/types/surfboard'
-import { BoardType, BoardCondition } from '~/types/surfboard'
+import type { SurfBoard, BoardType, BoardCondition } from '~/types/surfboard'
 
 export const useSurfboards = () => {
   // State
@@ -7,7 +6,7 @@ export const useSurfboards = () => {
   const isLoading = useState<boolean>('surfboards-loading', () => false)
   const error = useState<Error | null>('surfboards-error', () => null)
   const selectedBoard = useState<SurfBoard | null>('selected-surfboard', () => null)
-  
+
   // Filters
   const searchQuery = useState<string>('surfboards-search', () => '')
   const selectedType = useState<BoardType | 'all'>('surfboards-type-filter', () => 'all')
@@ -22,38 +21,38 @@ export const useSurfboards = () => {
     if (searchQuery.value) {
       const query = searchQuery.value.toLowerCase()
       filtered = filtered.filter(
-        (board) =>
-          board.name.toLowerCase().includes(query) ||
-          board.brand?.toLowerCase().includes(query) ||
-          board.model?.toLowerCase().includes(query) ||
-          board.type.toLowerCase().includes(query)
+        board =>
+          board.name.toLowerCase().includes(query)
+          || board.brand?.toLowerCase().includes(query)
+          || board.model?.toLowerCase().includes(query)
+          || board.type.toLowerCase().includes(query)
       )
     }
 
     // Filter by type
     if (selectedType.value !== 'all') {
-      filtered = filtered.filter((board) => board.type === selectedType.value)
+      filtered = filtered.filter(board => board.type === selectedType.value)
     }
 
     // Filter by condition
     if (selectedCondition.value !== 'all') {
-      filtered = filtered.filter((board) => board.condition === selectedCondition.value)
+      filtered = filtered.filter(board => board.condition === selectedCondition.value)
     }
 
     // Filter by availability
     if (showAvailableOnly.value) {
-      filtered = filtered.filter((board) => board.isAvailable)
+      filtered = filtered.filter(board => board.isAvailable)
     }
 
     return filtered
   })
 
   const availableSurfboards = computed(() =>
-    surfboards.value.filter((board) => board.isAvailable)
+    surfboards.value.filter(board => board.isAvailable)
   )
 
   const unavailableSurfboards = computed(() =>
-    surfboards.value.filter((board) => !board.isAvailable)
+    surfboards.value.filter(board => !board.isAvailable)
   )
 
   const boardsByType = computed(() => {
@@ -78,9 +77,9 @@ export const useSurfboards = () => {
   const fetchSurfboards = async () => {
     isLoading.value = true
     error.value = null
-    
+
     try {
-      const response = await $fetch<{ surfboards: SurfBoard[]; total: number }>('/api/surfboards')
+      const response = await $fetch<{ surfboards: SurfBoard[], total: number }>('/api/surfboards')
       surfboards.value = response.surfboards
     } catch (err) {
       error.value = err as Error
@@ -147,4 +146,3 @@ export const useSurfboards = () => {
     resetFilters
   }
 }
-

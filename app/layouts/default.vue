@@ -67,6 +67,20 @@ const navigationLinks = computed(() => [[{
     open.value = false
   }
 }, {
+  label: t('sessions.title'),
+  icon: 'i-heroicons-calendar-days',
+  to: '/sessions',
+  onSelect: () => {
+    open.value = false
+  }
+}, {
+  label: t('templates.title'),
+  icon: 'i-heroicons-document-duplicate',
+  to: '/sessions/templates',
+  onSelect: () => {
+    open.value = false
+  }
+}, {
   label: t('businesses.title'),
   icon: 'i-heroicons-building-storefront',
   to: '/businesses',

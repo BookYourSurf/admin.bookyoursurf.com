@@ -42,4 +42,3 @@ const handleSurfboardClick = (surfboard: SurfBoard) => {
   emit('select', surfboard)
 }
 </script>
-

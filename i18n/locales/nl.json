@@ -14,7 +14,14 @@
     "retry": "Opnieuw proberen",
     "cancel": "Annuleren",
     "create": "Aanmaken",
-    "active": "Actief"
+    "active": "Actief",
+    "edit": "Bewerken",
+    "save": "Opslaan",
+    "delete": "Verwijderen",
+    "filters": "Filters",
+    "error": "Fout",
+    "selectDate": "Selecteer een datum",
+    "selectTime": "Selecteer een tijd"
   },
   "brand": {
     "name": "BookYourSurf",
@@ -167,6 +174,190 @@
       "nameMinLength": "Plank naam moet minimaal 2 tekens bevatten",
       "imageUrl": "Moet een geldige URL zijn",
       "descriptionMinLength": "Beschrijving moet minimaal 10 tekens bevatten"
+    }
+  },
+  "sessions": {
+    "title": "Sessies",
+    "subtitle": "Beheer klantboekingen en surfsessies",
+    "createSession": "Sessie aanmaken",
+    "participants": "deelnemers",
+    "noSessions": "Geen sessies",
+    "views": {
+      "board": "Bordweergave",
+      "calendar": "Kalenderweergave"
+    },
+    "form": {
+      "template": "Les sjabloon",
+      "templatePlaceholder": "Selecteer een sjabloon",
+      "date": "Datum",
+      "timeWindow": "Tijdvenster",
+      "timeWindowPlaceholder": "Selecteer tijdvenster",
+      "specificTime": "Specifieke tijd (optioneel)",
+      "customerName": "Klantnaam",
+      "customerNamePlaceholder": "Voer klantnaam in",
+      "customerEmail": "Klant e-mail",
+      "customerEmailPlaceholder": "klant{'@'}voorbeeld.nl",
+      "groupSize": "Groepsgrootte",
+      "level": "Vaardigheidsniveau",
+      "levelPlaceholder": "Selecteer vaardigheidsniveau",
+      "notes": "Notities",
+      "notesPlaceholder": "Aanvullende notities of vereisten"
+    },
+    "validation": {
+      "templateRequired": "Selecteer een les sjabloon",
+      "dateRequired": "Selecteer een datum",
+      "customerNameMinLength": "Klantnaam moet minimaal 2 tekens bevatten",
+      "customerEmailInvalid": "Voer een geldig e-mailadres in"
+    },
+    "modal": {
+      "addTitle": "Nieuwe sessie aanmaken",
+      "addDescription": "Plan een nieuwe surfsessie voor een klant",
+      "editTitle": "Sessie bewerken",
+      "editDescription": "Update sessie details",
+      "createButton": "Sessie aanmaken",
+      "updateButton": "Sessie bijwerken",
+      "successTitle": "Sessie aangemaakt",
+      "successDescription": "Sessie '{name}' is succesvol aangemaakt",
+      "updateSuccessTitle": "Sessie bijgewerkt",
+      "updateSuccessDescription": "Sessie '{name}' is succesvol bijgewerkt"
+    },
+    "columns": {
+      "needsConfirmation": "Bevestiging vereist",
+      "confirmed": "Bevestigd",
+      "completed": "Voltooid",
+      "changedAttention": "Gewijzigd / Aandacht"
+    },
+    "emptyStates": {
+      "needsConfirmation": "Geen sessies in afwachting van bevestiging",
+      "confirmed": "Geen bevestigde sessies",
+      "completed": "Geen voltooide sessies",
+      "changedAttention": "Geen sessies die aandacht vereisen"
+    },
+    "states": {
+      "needs_confirmation": "Bevestiging vereist",
+      "confirmed": "Bevestigd",
+      "completed": "Voltooid",
+      "changed": "Gewijzigd",
+      "cancelled": "Geannuleerd"
+    },
+    "serviceTypes": {
+      "surf_lesson": "Surfles",
+      "surf_coaching": "Surfcoaching",
+      "surf_guiding": "Surfgids",
+      "surf_camp": "Surfkamp"
+    },
+    "skillLevels": {
+      "beginner": "Beginner",
+      "intermediate": "Gevorderd",
+      "advanced": "Geavanceerd",
+      "expert": "Expert"
+    },
+    "timeWindows": {
+      "morning": "Ochtend",
+      "afternoon": "Middag",
+      "flexible": "Flexibel"
+    },
+    "actions": {
+      "confirmTime": "Tijd bevestigen",
+      "changeTime": "Tijd wijzigen",
+      "message": "Bericht"
+    },
+    "filters": {
+      "serviceType": "Diensttype",
+      "instructor": "Instructeur",
+      "dateRange": "Datumbereik",
+      "allServices": "Alle diensten",
+      "allInstructors": "Alle instructeurs",
+      "today": "Vandaag",
+      "thisWeek": "Deze week",
+      "thisMonth": "Deze maand"
+    },
+    "confirmModal": {
+      "title": "Sessietijd bevestigen",
+      "specificTime": "Specifieke tijd (optioneel)",
+      "timeExample": "bijv. 09:00",
+      "description": "Het bevestigen van deze sessie zal de klant op de hoogte stellen en de tijd vastleggen.",
+      "confirm": "Sessie bevestigen",
+      "successTitle": "Sessie bevestigd",
+      "successDescription": "De sessie is succesvol bevestigd",
+      "errorDescription": "Kon de sessie niet bevestigen. Probeer het opnieuw."
+    },
+    "changeTimeModal": {
+      "title": "Sessietijd wijzigen",
+      "newDate": "Nieuwe datum",
+      "timeWindow": "Tijdvenster",
+      "specificTime": "Specifieke tijd (optioneel)",
+      "timeExample": "bijv. 14:00",
+      "description": "Het wijzigen van de tijd zal de klant op de hoogte stellen en de sessie markeren als 'gewijzigd'.",
+      "successTitle": "Tijd gewijzigd",
+      "successDescription": "De sessietijd is succesvol bijgewerkt",
+      "errorDescription": "Kon de sessietijd niet wijzigen. Probeer het opnieuw."
+    },
+    "messageModal": {
+      "title": "Bericht verzenden",
+      "subject": "Onderwerp",
+      "subjectPlaceholder": "Voer berichtonderwerp in",
+      "message": "Bericht",
+      "messagePlaceholder": "Schrijf je bericht aan de klant...",
+      "description": "Dit bericht wordt rechtstreeks naar de klant verzonden.",
+      "send": "Bericht verzenden",
+      "successTitle": "Bericht verzonden",
+      "successDescription": "Je bericht is succesvol verzonden",
+      "errorDescription": "Kon het bericht niet verzenden. Probeer het opnieuw."
+    },
+    "calendar": {
+      "today": "Vandaag",
+      "noSessions": "Geen sessies",
+      "readOnlyNote": "Deze kalenderweergave is alleen-lezen en toont alleen bevestigde sessies."
+    }
+  },
+  "templates": {
+    "title": "Les sjablonen",
+    "subtitle": "Definieer dienstsjablonen voor boekbare sessies",
+    "createTemplate": "Sjabloon aanmaken",
+    "createFirst": "Maak je eerste sjabloon",
+    "editTemplate": "Sjabloon bewerken",
+    "addNew": "Sjabloon toevoegen",
+    "noTemplates": "Nog geen les sjablonen aangemaakt",
+    "minutes": "min",
+    "students": "studenten",
+    "noInstructors": "Geen instructeurs toegewezen",
+    "multipleInstructors": "{count} instructeurs",
+    "form": {
+      "name": "Sjabloonnaam",
+      "serviceType": "Diensttype",
+      "level": "Vaardigheidsniveau",
+      "duration": "Duur (minuten)",
+      "timeWindow": "Standaard tijdvenster",
+      "minGroupSize": "Min groepsgrootte",
+      "maxGroupSize": "Max groepsgrootte",
+      "location": "Standaardlocatie",
+      "price": "Prijs",
+      "currency": "Valuta",
+      "description": "Beschrijving",
+      "isActive": "Actief"
+    },
+    "validation": {
+      "nameMinLength": "Sjabloonnaam moet minimaal 2 tekens bevatten"
+    },
+    "modal": {
+      "addDescription": "Maak een nieuw lessjabloon voor je sessies",
+      "editDescription": "Lessjabloon details bijwerken",
+      "deleteTitle": "Sjabloon verwijderen",
+      "deleteDescription": "Deze actie kan niet ongedaan worden gemaakt",
+      "deleteWarningTitle": "Waarschuwing",
+      "deleteWarningDescription": "Je staat op het punt om sjabloon '{name}' te verwijderen. Deze actie is permanent en kan niet ongedaan worden gemaakt.",
+      "deleteConfirmLabel": "Typ 'delete' om te bevestigen",
+      "deleteConfirmDescription": "Typ het woord 'delete' om verwijdering te bevestigen",
+      "deleteConfirmPlaceholder": "delete",
+      "successTitle": "Sjabloon aangemaakt",
+      "successDescription": "Sjabloon '{name}' is succesvol aangemaakt",
+      "updateSuccessTitle": "Sjabloon bijgewerkt",
+      "updateSuccessDescription": "Sjabloon '{name}' is succesvol bijgewerkt",
+      "deleteSuccessTitle": "Sjabloon verwijderd",
+      "deleteSuccessDescription": "Sjabloon '{name}' is succesvol verwijderd",
+      "errorDescription": "Opslaan van sjabloon mislukt. Probeer het opnieuw.",
+      "deleteErrorDescription": "Verwijderen van sjabloon mislukt. Probeer het opnieuw."
     }
   }
 }

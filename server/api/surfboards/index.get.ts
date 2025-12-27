@@ -261,4 +261,3 @@ export default defineEventHandler(() => {
     total: mockSurfboards.length
   }
 })
-

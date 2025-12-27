@@ -31,7 +31,19 @@ export default defineNuxtConfig({
       pathPrefix: false
     },
     {
+      path: '~/components/sessions',
+      pathPrefix: false
+    },
+    {
       path: '~/components/settings',
+      pathPrefix: false
+    },
+    {
+      path: '~/components/surfboards',
+      pathPrefix: false
+    },
+    {
+      path: '~/components/templates',
       pathPrefix: false
     },
     {
@@ -74,7 +86,7 @@ export default defineNuxtConfig({
     locales: [
       {
         code: 'en',
-        language: 'en-US',
+        language: 'en-GB',
         name: 'English',
         file: 'en.json'
       },

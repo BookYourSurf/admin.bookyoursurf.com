@@ -83,10 +83,10 @@ const conditionOptions = computed(() => [
 
 const hasActiveFilters = computed(() => {
   return (
-    searchQuery.value !== '' ||
-    selectedType.value !== 'all' ||
-    selectedCondition.value !== 'all' ||
-    showAvailableOnly.value
+    searchQuery.value !== ''
+    || selectedType.value !== 'all'
+    || selectedCondition.value !== 'all'
+    || showAvailableOnly.value
   )
 })
 
@@ -110,4 +110,3 @@ const handleClearFilters = () => {
   resetFilters()
 }
 </script>
-

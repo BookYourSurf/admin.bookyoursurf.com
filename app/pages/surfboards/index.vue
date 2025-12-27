@@ -91,4 +91,3 @@ const handleSelect = (surfboard: SurfBoard) => {
   selectBoard(surfboard)
 }
 </script>
-

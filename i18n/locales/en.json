@@ -14,7 +14,14 @@
     "retry": "Retry",
     "cancel": "Cancel",
     "create": "Create",
-    "active": "Active"
+    "active": "Active",
+    "edit": "Edit",
+    "save": "Save",
+    "delete": "Delete",
+    "filters": "Filters",
+    "error": "Error",
+    "selectDate": "Select a date",
+    "selectTime": "Select a time"
   },
   "brand": {
     "name": "BookYourSurf",
@@ -167,6 +174,190 @@
       "nameMinLength": "Board name must be at least 2 characters",
       "imageUrl": "Must be a valid URL",
       "descriptionMinLength": "Description must be at least 10 characters"
+    }
+  },
+  "sessions": {
+    "title": "Sessions",
+    "subtitle": "Manage customer bookings and surf sessions",
+    "createSession": "Create Session",
+    "participants": "participants",
+    "noSessions": "No sessions",
+    "views": {
+      "board": "Board View",
+      "calendar": "Calendar View"
+    },
+    "form": {
+      "template": "Lesson Template",
+      "templatePlaceholder": "Select a template",
+      "date": "Date",
+      "timeWindow": "Time Window",
+      "timeWindowPlaceholder": "Select time window",
+      "specificTime": "Specific Time (Optional)",
+      "customerName": "Customer Name",
+      "customerNamePlaceholder": "Enter customer name",
+      "customerEmail": "Customer Email",
+      "customerEmailPlaceholder": "customer{'@'}example.com",
+      "groupSize": "Group Size",
+      "level": "Skill Level",
+      "levelPlaceholder": "Select skill level",
+      "notes": "Notes",
+      "notesPlaceholder": "Additional notes or requirements"
+    },
+    "validation": {
+      "templateRequired": "Please select a lesson template",
+      "dateRequired": "Please select a date",
+      "customerNameMinLength": "Customer name must be at least 2 characters",
+      "customerEmailInvalid": "Please enter a valid email address"
+    },
+    "modal": {
+      "addTitle": "Create New Session",
+      "addDescription": "Schedule a new surf session for a customer",
+      "editTitle": "Edit Session",
+      "editDescription": "Update session details",
+      "createButton": "Create Session",
+      "updateButton": "Update Session",
+      "successTitle": "Session Created",
+      "successDescription": "Session '{name}' has been created successfully",
+      "updateSuccessTitle": "Session Updated",
+      "updateSuccessDescription": "Session '{name}' has been updated successfully"
+    },
+    "columns": {
+      "needsConfirmation": "Needs Confirmation",
+      "confirmed": "Confirmed",
+      "completed": "Completed",
+      "changedAttention": "Changed / Attention"
+    },
+    "emptyStates": {
+      "needsConfirmation": "No sessions pending confirmation",
+      "confirmed": "No confirmed sessions",
+      "completed": "No completed sessions",
+      "changedAttention": "No sessions requiring attention"
+    },
+    "states": {
+      "needs_confirmation": "Needs Confirmation",
+      "confirmed": "Confirmed",
+      "completed": "Completed",
+      "changed": "Changed",
+      "cancelled": "Cancelled"
+    },
+    "serviceTypes": {
+      "surf_lesson": "Surf Lesson",
+      "surf_coaching": "Surf Coaching",
+      "surf_guiding": "Surf Guiding",
+      "surf_camp": "Surf Camp"
+    },
+    "skillLevels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "expert": "Expert"
+    },
+    "timeWindows": {
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "flexible": "Flexible"
+    },
+    "actions": {
+      "confirmTime": "Confirm Time",
+      "changeTime": "Change Time",
+      "message": "Message"
+    },
+    "filters": {
+      "serviceType": "Service Type",
+      "instructor": "Instructor",
+      "dateRange": "Date Range",
+      "allServices": "All services",
+      "allInstructors": "All instructors",
+      "today": "Today",
+      "thisWeek": "This Week",
+      "thisMonth": "This Month"
+    },
+    "confirmModal": {
+      "title": "Confirm Session Time",
+      "specificTime": "Specific Time (Optional)",
+      "timeExample": "e.g., 09:00",
+      "description": "Confirming this session will notify the customer and lock in the time.",
+      "confirm": "Confirm Session",
+      "successTitle": "Session Confirmed",
+      "successDescription": "The session has been confirmed successfully",
+      "errorDescription": "Failed to confirm the session. Please try again."
+    },
+    "changeTimeModal": {
+      "title": "Change Session Time",
+      "newDate": "New Date",
+      "timeWindow": "Time Window",
+      "specificTime": "Specific Time (Optional)",
+      "timeExample": "e.g., 14:00",
+      "description": "Changing the time will notify the customer and mark the session as 'changed'.",
+      "successTitle": "Time Changed",
+      "successDescription": "The session time has been updated successfully",
+      "errorDescription": "Failed to change the session time. Please try again."
+    },
+    "messageModal": {
+      "title": "Send Message",
+      "subject": "Subject",
+      "subjectPlaceholder": "Enter message subject",
+      "message": "Message",
+      "messagePlaceholder": "Write your message to the customer...",
+      "description": "This message will be sent directly to the customer.",
+      "send": "Send Message",
+      "successTitle": "Message Sent",
+      "successDescription": "Your message has been sent successfully",
+      "errorDescription": "Failed to send the message. Please try again."
+    },
+    "calendar": {
+      "today": "Today",
+      "noSessions": "No sessions",
+      "readOnlyNote": "This calendar view is read-only and shows confirmed sessions only."
+    }
+  },
+  "templates": {
+    "title": "Lesson Templates",
+    "subtitle": "Define service templates for bookable sessions",
+    "createTemplate": "Create Template",
+    "createFirst": "Create Your First Template",
+    "editTemplate": "Edit Template",
+    "addNew": "Add Template",
+    "noTemplates": "No lesson templates created yet",
+    "minutes": "min",
+    "students": "students",
+    "noInstructors": "No instructors assigned",
+    "multipleInstructors": "{count} instructors",
+    "form": {
+      "name": "Template Name",
+      "serviceType": "Service Type",
+      "level": "Skill Level",
+      "duration": "Duration (minutes)",
+      "timeWindow": "Default Time Window",
+      "minGroupSize": "Min Group Size",
+      "maxGroupSize": "Max Group Size",
+      "location": "Default Location",
+      "price": "Price",
+      "currency": "Currency",
+      "description": "Description",
+      "isActive": "Active"
+    },
+    "validation": {
+      "nameMinLength": "Template name must be at least 2 characters"
+    },
+    "modal": {
+      "addDescription": "Create a new lesson template for your sessions",
+      "editDescription": "Update lesson template details",
+      "deleteTitle": "Delete Template",
+      "deleteDescription": "This action cannot be undone",
+      "deleteWarningTitle": "Warning",
+      "deleteWarningDescription": "You are about to delete the template '{name}'. This action is permanent and cannot be undone.",
+      "deleteConfirmLabel": "Type 'delete' to confirm",
+      "deleteConfirmDescription": "Please type the word 'delete' to confirm deletion",
+      "deleteConfirmPlaceholder": "delete",
+      "successTitle": "Template Created",
+      "successDescription": "Template '{name}' has been created successfully",
+      "updateSuccessTitle": "Template Updated",
+      "updateSuccessDescription": "Template '{name}' has been updated successfully",
+      "deleteSuccessTitle": "Template Deleted",
+      "deleteSuccessDescription": "Template '{name}' has been deleted successfully",
+      "errorDescription": "Failed to save template. Please try again.",
+      "deleteErrorDescription": "Failed to delete template. Please try again."
     }
   }
 }

@@ -2,7 +2,9 @@ export default defineAppConfig({
   ui: {
     colors: {
       primary: 'brand',
-      neutral: 'neutral'
+      neutral: 'neutral',
+      error: 'error',
+      success: 'success'
     },
     // Card components
     card: {
